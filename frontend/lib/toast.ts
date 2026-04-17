@@ -4,10 +4,6 @@ const defaultOptions: ToastOptions = {
   // คุณสามารถปรับแก้ options เริ่มต้นได้ที่นี่
 };
 
-/**
- * showToast Utility
- * รองรับ success, error, warning, และ info
- */
 export const showToast = {
   success: (message: string, options?: ToastOptions) => {
     return toast.success(message, { ...defaultOptions, ...options });

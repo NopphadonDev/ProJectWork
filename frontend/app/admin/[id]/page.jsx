@@ -20,18 +20,19 @@ export default function Page({ params }) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (editMode) {
+    if (editMode && id) {
       const loadData = async () => {
         try {
           const res = await homeService.getHomeById(id);
           if (res?.data) {
             setHomeData({
-              name: res.data.name,
-              address: res.data.address,
+              name: res.home_name || "",
+              address: res.home_address || "",
             });
           }
         } catch (error) {
           showToast.error("โหลดข้อมูลเดิมไม่สำเร็จ");
+          console.log(error);
         }
       };
       loadData();

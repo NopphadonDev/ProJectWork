@@ -11,6 +11,16 @@ export const homeService = {
       throw error;
     }
   },
+
+  getHomeById: async (homeId) => {
+    try {
+      const response = await axiosInstance.get(`/home/${homeId}`);  
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
+
   createHome: async (homeData) => {
     try {
       const response = await axiosInstance.post("/home", homeData);
